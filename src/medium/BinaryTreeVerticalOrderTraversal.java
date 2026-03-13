@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class BinaryTreeVerticalOrderTraversal {
     public class TreeNode {
@@ -22,9 +23,9 @@ public class BinaryTreeVerticalOrderTraversal {
         Map<Integer, Map<Integer, List<Integer>>> verticalMap = new HashMap<>();
         recursiveTraversal(root, 0, 0, verticalMap);
         List<List<Integer>> result = new ArrayList<>();
-        for (Integer seed : verticalMap.keySet().stream().sorted().toList()) {
+        for (Integer seed : verticalMap.keySet().stream().sorted().collect(Collectors.toList())) {
             List<Integer> vertical = new ArrayList<>();
-            for (Integer row : verticalMap.get(seed).keySet().stream().sorted().toList()) {
+            for (Integer row : verticalMap.get(seed).keySet().stream().sorted().collect(Collectors.toList())) {
                 vertical.addAll(verticalMap.get(seed).get(row));
             }
             result.add(vertical);

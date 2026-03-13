@@ -6,6 +6,7 @@ import misc.cache.Cache;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class LRUCacheImpl<K, V> implements Cache<K, V> {
     // Eviction based on fixed size.
@@ -67,7 +68,7 @@ public class LRUCacheImpl<K, V> implements Cache<K, V> {
     public void printLinkedList() {
 
         String toStr = "[ ";
-        for (Node<K, V> node : linkedList.stream().toList()) {
+        for (Node<K, V> node : linkedList.stream().collect(Collectors.toList())) {
             toStr = toStr + String.format(" <%s, %s>", node.getKey(), node.getValue());
         }
         toStr = toStr + " ]";
