@@ -1,0 +1,7 @@
+user_id, session_time,session_action (Open|Close)
+1,350,open
+2,355, open
+2, 450, close
+1,560, close
+2,405, open
+2, 560, close
